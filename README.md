@@ -24,8 +24,8 @@
 
 <br/>
 
-<!-- Animated Biomedical DSP Waveform -->
-<img src="./ppg-wave.svg" width="100%" alt="Animated PPG Signal Waveform Telemetry"/>
+<!-- Cozy Anime Character Working / Coding in Peace -->
+<img src="./coding-anime.gif" width="600" alt="Anime Character Working in Peace" />
 
 </div>
 
