@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 120" width="100%" height="120">
+  <defs>
+    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.3"/>
+      <stop offset="25%" stop-color="#38BDF8" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#A6D957" stop-opacity="1"/>
+      <stop offset="75%" stop-color="#A6D957" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.3"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <style>
+    .grid { stroke: rgba(255,255,255,0.05); stroke-width: 1; stroke-dasharray: 4 4; }
+    .pulse-path {
+      stroke: url(#waveGrad);
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: url(#glow);
+      stroke-dasharray: 1200;
+      stroke-dashoffset: 1200;
+      animation: dash 4s ease-in-out infinite;
+    }
+    @keyframes dash {
+      0% { stroke-dashoffset: 1200; opacity: 0.4; }
+      50% { stroke-dashoffset: 0; opacity: 1; }
+      100% { stroke-dashoffset: -1200; opacity: 0.4; }
+    }
+    .label {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
+      font-size: 10px;
+      fill: #A6D957;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
+    .live-dot {
+      fill: #A6D957;
+      animation: blink 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes blink {
+      0% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+  </style>
+  <rect width="100%" height="100%" fill="#17191D" rx="10" stroke="#2a2e34" stroke-width="1.2"/>
+  <!-- ECG / PPG Wave Grid lines -->
+  <line x1="0" y1="35" x2="800" y2="35" class="grid"/>
+  <line x1="0" y1="65" x2="800" y2="65" class="grid"/>
+  <line x1="0" y1="95" x2="800" y2="95" class="grid"/>
+  <line x1="200" y1="0" x2="200" y2="120" class="grid"/>
+  <line x1="400" y1="0" x2="400" y2="120" class="grid"/>
+  <line x1="600" y1="0" x2="600" y2="120" class="grid"/>
+  <!-- Telemetry labels -->
+  <text x="20" y="24" class="label">⚡ BIOMEDICAL DSP PIPELINE // RAW PPG WAVEFORM INGESTION</text>
+  <circle cx="705" cy="20" r="4" class="live-dot" />
+  <text x="716" y="24" class="label">ONLINE</text>
+  <!-- Realistic PPG arterial pulse wave path -->
+  <path class="pulse-path" d="M 10,75 L 80,75 L 95,73 L 105,75 L 120,75 L 135,70 L 145,28 L 155,88 L 165,65 L 175,70 L 190,75 L 260,75 L 275,73 L 285,75 L 300,75 L 315,70 L 325,28 L 335,88 L 345,65 L 355,70 L 370,75 L 440,75 L 455,73 L 465,75 L 480,75 L 495,70 L 505,28 L 515,88 L 525,65 L 535,70 L 550,75 L 620,75 L 635,73 L 645,75 L 660,75 L 675,70 L 685,28 L 695,88 L 705,65 L 715,70 L 730,75 L 790,75" />
+</svg>
